@@ -1,0 +1,2 @@
+# Minchat
+## chatting app project
