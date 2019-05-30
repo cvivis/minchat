@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>배라는 민트초코</title>
+    <meta charset="utf-8">
+    <title>채팅</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+  </head>
+  <body>
+    <h1 id = "head"><center>민트초코</center></h1>
+    <div id="main">
+      <div id="chat">
+        <!-- 채팅 메시지 영역 -->
+      </div>
+      <div>
+        <input type="text" id="test" placeholder="메시지를 입력해주세요..">
+        <button id = "send" onclick="send()">전송
+          <style>
+            h1{
+              font-size: 600%;
+              font-weight: bold;
+              margin: 0px;
+            }
+            #send:hover{background: #aaf0d1;}  
+            #send{
+              width : 60pt;
+              height: 20pt;
+              background: #fff;
+            }
+            #test{
+              width: 200pt;
+              height: 20pt;
+            }
+
+          </style>
+        </button>
+      </div>
+    </div>
+  </body>
+  <body>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5ceb3ed92135900bac12999c/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  </body>
+</html>
