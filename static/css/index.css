@@ -1,6 +1,10 @@
 /* 메인 */
+h1{
+  font-size: 600%;
+  font-weight: bold;
+  margin: 0px;
+  }
 #main {
-
   margin: auto;
   margin-top: 0px;
   border-radius: 20px;
@@ -9,7 +13,16 @@
   width: 400px;
   height: 500px;
 }
-
+#send:hover{background: #00ced1;}
+#send{
+  width : 60pt;
+  height: 20pt;
+  background: #fff;
+  }
+#test{
+  width: 200pt;
+  height: 20pt;
+            }
 /* 채팅 영역 */
 #chat {
   height: 90%;
