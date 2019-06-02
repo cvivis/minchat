@@ -13,11 +13,15 @@ h1{
   width: 400px;
   height: 500px;
 }
-#send:hover{background: #00ced1;}
+#test {
+  border-radius: 20px;
+}
+#send:hover{background: #00a5a7;}
 #send{
   width : 60pt;
   height: 20pt;
-  background: #fff;
+  background: #00ced1;
+  border-radius: 20px;
   }
 #test{
   width: 200pt;
@@ -28,6 +32,17 @@ h1{
   height: 90%;
   width: 100%;
   overflow-y: auto;
+}
+@media(max-height: 450px){
+  #main {
+  margin: auto;
+  margin-top: 0px;
+  border-radius: 20px;
+  background-color: #aaf0d1;
+  text-align: center;
+  width: 400px;
+  height: 300px;
+  }
 }
 
 

@@ -3,29 +3,28 @@
   <head>
     <title>배라는 민트초코</title>
     <meta charset="utf-8">
-    <title>채팅</title>
     <link rel="stylesheet" href="/css/index.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
-  </head>
     <h1 id = "head"><center>민트초코</center></h1>
+  </head>
+      <!-- 엔터키 함수 -->
+    <script>
+      var temp;
+        function enterKey(){
+          if (window.event.keyCode == 13){
+            send();
+          }
+        }
+    </script>
     <body>
     <div id="main">
       <div id="chat">
         <!-- 채팅 메시지 영역 -->
       </div>
       <div>
-        <input type="text" id="test" placeholder="메시지를 입력해주세요.." onkeyup="enterKey()" value="">
-        <button id = "send" onclick="send()" >전송
-        <script type="text/javascript">
-          var temp;
-          function enterKey(){
-            if (window.event.keyCode == 13){
-              send();
-            }
-          }
-        </script>>
-        </button>
+        <input type="text" id="test" placeholder="  메시지를 입력해주세요.." onkeyup="enterKey()" >
+        <button id = "send" onclick="send()" >전송 </button>
       </div>
     </div>
   </body>
