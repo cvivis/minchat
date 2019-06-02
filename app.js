@@ -64,41 +64,41 @@ app.get('/', function(req, res) {
   })
 })
 //로그인정보와 DB정보 확인해서 채팅창 연결
-app.post('/', function (req, res){
-  var name = req.body.name;
-  var pwd = req.body.pwd;
-  console.log(name,pwd);
-  //DB에 Query전송
-  var sql = `SELECT * FROM user_info WHERE username = ?`; 
-  connection.query(sql,[name],function(err,results,fields){
-    // console.log(results);
-    if(results.length == 0){
-      res.redirect('/');
-    }
-    else{
-      var db_pwd = results[0].password;
+// app.post('/', function (req, res){
+//   var name = req.body.name;
+//   var pwd = req.body.pwd;
+//   console.log(name,pwd);
+//   //DB에 Query전송
+//   var sql = `SELECT * FROM user_info WHERE username = ?`; 
+//   connection.query(sql,[name],function(err,results,fields){
+//     // console.log(results);
+//     if(results.length == 0){
+//       res.redirect('/');
+//     }
+//     else{
+//       var db_pwd = results[0].password;
 
-      if(pwd == db_pwd){
-        res.render('index.html');
-      }
-      else{
-        res.redirect('/');
-      }
-    }
-  })
-});
+//       if(pwd == db_pwd){
+//         res.render('index.html');
+//       }
+//       else{
+//         res.redirect('/');
+//       }
+//     }
+//   })
+// });
 //회원가입창 열기
 app.get('/register', function (req, res) {
   res.render('register.html');
 });
 
-//로그인정보확인하고 열어야되서 index는 주석처리
-// app.get('/index', function(req, res){
-//   fs.readFile('./static/index.html',function(error, data){
-//     res.writeHead(200, { 'Content-Type': 'text/html'});
-//     res.end(data);
-//   })
-// })
+//일단 index들어가서 디자인 바꿔야되니 로그인정보 확인X
+app.get('/index', function(req, res){
+  fs.readFile('./views/index.html',function(error, data){
+    res.writeHead(200, { 'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
 
 //회원가입정보 DB에 저장하기
 app.post('/register', function (req, res){
