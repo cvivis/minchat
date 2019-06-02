@@ -63,6 +63,17 @@ app.get('/', function(req, res) {
     }
   })
 })
+/* 이미지 불러오기*/
+app.get('/mintimg', function(req, res){
+  fs.readFile('./views/mint.png', function(err, data) {
+    if(err) {
+      res.send('에러')
+    } else {
+      res.writeHead(200, {'Content-Type':'text/html'})
+      res.end(data)
+    }
+  })
+})
 //로그인정보와 DB정보 확인해서 채팅창 연결
 // app.post('/', function (req, res){
 //   var name = req.body.name;
