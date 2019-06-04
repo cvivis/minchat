@@ -17,7 +17,6 @@ socket.on('connect', () => {
 /* 서버로부터 데이터 받은 경우 */
 socket.on('update', (data) => {
   var chat = document.getElementById('chat')
-
   var message = document.createElement('div')
   var node = document.createTextNode(`${data.name}: ${data.message}`)
   var className = ''
@@ -46,10 +45,9 @@ socket.on('update', (data) => {
 function send() {
   // 입력되어있는 데이터 가져오기
   var message = document.getElementById('test').value
-  
+  if(!message)return;
   // 가져왔으니 데이터 빈칸으로 변경
   document.getElementById('test').value = ''
-
   // 내가 전송할 메시지 클라이언트에게 표시
   var chat = document.getElementById('chat')
   var msg = document.createElement('div')
