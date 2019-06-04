@@ -1,8 +1,9 @@
 /* 메인 */
-h1{
-  font-size: 600%;
+#head{
+  line-height: 20vh;
   font-weight: bold;
   margin: 0px;
+  height: 20vh
   }
 #main {
   margin: auto;
@@ -10,8 +11,8 @@ h1{
   border-radius: 20px;
   background-color: #aaf0d1;
   text-align: center;
-  width: 400px;
-  height: 500px;
+  width: 50%;
+  height: 75vh;
 }
 #test {
   border-radius: 20px;
@@ -24,7 +25,7 @@ h1{
   border-radius: 20px;
   }
 #test{
-  width: 200pt;
+  width: 70%;
   height: 20pt;
             }
 /* 채팅 영역 */
@@ -32,17 +33,6 @@ h1{
   height: 90%;
   width: 100%;
   overflow-y: auto;
-}
-@media(max-height: 450px){
-  #main {
-  margin: auto;
-  margin-top: 0px;
-  border-radius: 20px;
-  background-color: #aaf0d1;
-  text-align: center;
-  width: 400px;
-  height: 300px;
-  }
 }
 
 
@@ -53,6 +43,7 @@ h1{
   background-color: aquamarine;
   text-align: center;
   margin-top: 10px;
+  border-radius: 20px;
 }
 
 /* 접속 종료 알림 */
@@ -62,24 +53,34 @@ h1{
   background-color: indianred;
   text-align: center;
   margin-top: 10px;
+  border-radius: 20px;
 }
 
 /* 내가 보낸 메시지 */
 .me {
-  width: 90%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: 1em;
+  width: 30%;
+  height: 6vh;
+  line-height: 6vh;
   background-color: lemonchiffon;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
+
 }
 
 /* 상대방이 보낸 메시지 */
 .other {
-  width: 90%;
-  margin: auto;
+  margin-left: 1em;
+  margin-right: auto;
+  width: 30%;
+  height: 6vh;
+  line-height: 6vh;
   background-color: white;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
 }
 ::-webkit-scrollbar{
     width: 10px;
