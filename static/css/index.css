@@ -1,7 +1,7 @@
 /* 메인 */
 body{
   margin : 0px;
-  background-color: #2C3E50;
+  background-color: #212f3d;
 }
 
 #head{
@@ -11,24 +11,28 @@ body{
   height: 20vh
   }
 #main {
-
-  margin-top: 0px;
-  border-radius: 20px;
-  border:1px solid white;
-  background-color: #34495E;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: solid #1abc9c;
+  /* border-left: solid #1abc9c; */
+  background-color: #2a3a4c;
   text-align: center;
-  width: 80%;
-  height: 100vh;
+  width: 70%;
+  height: 99vh;
 }
 #test {
   border-radius: 20px;
+  border : 0px;
 }
-#send:hover{background: #00a5a7;}
+#send:hover{background: #009496;}
 #send{
   width : 60pt;
   height: 20pt;
-  background: #00ced1;
-  border-radius: 20px;
+  background: #1abc9c;
+  border-radius: 10px;
+  border : 0px;
   }
 #test{
   width: 70%;
@@ -46,9 +50,9 @@ body{
 .connect {
   width: 90%;
   margin: auto;
-  background-color: #a1e6d9;
+  background-color: #1abc9d;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 20px;
 }
 
@@ -69,7 +73,7 @@ body{
   width: 50%;
   height: 6vh;
   line-height: 6vh;
-  background-color: lemonchiffon;
+  background-color: #e5f9f9;
   border-radius: 5px;
   margin-top: 10px;
   text-align: center;
@@ -92,7 +96,7 @@ body{
     width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background-color:#f1f1f1;
+    background-color: #1d2b38;
 }
 ::-webkit-scrollbar-thumb {
     background-color:#1ABC9C;border-radius: 10px;
