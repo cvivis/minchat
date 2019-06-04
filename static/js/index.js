@@ -55,7 +55,6 @@ function send() {
   msg.classList.add('me')
   msg.appendChild(node)
   chat.appendChild(msg)
-
   // 서버로 message 이벤트 전달 + 데이터와 함께
   socket.emit('message', {type: 'message', message: message})
 }

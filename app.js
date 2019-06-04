@@ -36,7 +36,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   post: 3306,//오류생기면 추가
-  password: 'hsy4080408',
+  password: 'choibi',
   database: 'minchat_user'
 });
 connection.connect(function(err){
