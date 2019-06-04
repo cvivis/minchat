@@ -1,4 +1,9 @@
 /* 메인 */
+body{
+  margin : 0px;
+  background-color: #2C3E50;
+}
+
 #head{
   line-height: 20vh;
   font-weight: bold;
@@ -6,13 +11,14 @@
   height: 20vh
   }
 #main {
-  margin: auto;
+
   margin-top: 0px;
   border-radius: 20px;
-  background-color: #aaf0d1;
+  border:1px solid white;
+  background-color: #34495E;
   text-align: center;
-  width: 50%;
-  height: 75vh;
+  width: 80%;
+  height: 100vh;
 }
 #test {
   border-radius: 20px;
@@ -40,7 +46,7 @@
 .connect {
   width: 90%;
   margin: auto;
-  background-color: aquamarine;
+  background-color: #a1e6d9;
   text-align: center;
   margin-top: 10px;
   border-radius: 20px;
@@ -60,7 +66,7 @@
 .me {
   margin-left: auto;
   margin-right: 1em;
-  width: 30%;
+  width: 50%;
   height: 6vh;
   line-height: 6vh;
   background-color: lemonchiffon;
@@ -74,7 +80,7 @@
 .other {
   margin-left: 1em;
   margin-right: auto;
-  width: 30%;
+  width: 50%;
   height: 6vh;
   line-height: 6vh;
   background-color: white;
