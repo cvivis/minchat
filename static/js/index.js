@@ -25,6 +25,12 @@ socket.on('update', (data) => {
   switch(data.type) {
     case 'message':
       className = 'other'
+      let nameBlock = document.createElement('div')
+      let name = document.createTextNode(`${data.name}`)
+      nameBlock.appendChild(name)
+      nameBlock.classList.add('name')
+      chat.appendChild(nameBlock)
+      node = document.createTextNode(`${data.message}`)
       break
 
     case 'connect':

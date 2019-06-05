@@ -32,7 +32,6 @@ app.use(bodyParser.urlencoded({ extended: false}));
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-
   host: 'localhost',
   user: 'root',
   post: 3306,//오류생기면 추가
@@ -136,8 +135,7 @@ io.sockets.on('connection', function(socket) {
     console.log(name + ' 님이 접속하였습니다.')
 
     /* 소켓에 이름 저장해두기 */
-    socket.name = name
-
+    socket.name = name;
     /* 모든 소켓에게 전송 */
     io.sockets.emit('update', {type: 'connect', name: 'SERVER', message: name + '님이 접속하였습니다.'})
   })
