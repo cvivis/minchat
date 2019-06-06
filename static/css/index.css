@@ -74,6 +74,7 @@ body{
   margin: auto;
   background-color: #1abc9d;
   text-align: center;
+  font-weight:bold;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 9px;
@@ -88,6 +89,7 @@ body{
   margin: auto;
   background-color: indianred;
   text-align: center;
+  font-weight:bold;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 9px;
@@ -143,6 +145,17 @@ body{
   padding: 9px;
   text-align: left;
   float: left;
+}
+/* 접속한 사람*/
+.member {
+  border-radius: 10px;
+  margin:5px;
+  background-color:#ECF0F1;
+  text-align:center;
+  width:auto;
+  height:auto;
+  padding: 9px;
+  font-weight:bold;
 }
 ::-webkit-scrollbar{
     width: 10px;

@@ -137,7 +137,7 @@ io.sockets.on('connection', function(socket) {
     /* 소켓에 이름 저장해두기 */
     socket.name = name;
     /* 모든 소켓에게 전송 */
-    io.sockets.emit('update', {type: 'connect', name: 'SERVER', message: name + '님이 접속하였습니다.'})
+    io.sockets.emit('update', {type: 'connect', name: name, message: '님이 접속하였습니다.'})
   })
 
   /* 전송한 메시지 받기 */
@@ -154,9 +154,9 @@ io.sockets.on('connection', function(socket) {
   /* 접속 종료 */
   socket.on('disconnect', function() {
     console.log(socket.name + '님이 나가셨습니다.')
-
+    var tempName = socket.name;
     /* 나가는 사람을 제외한 나머지 유저에게 메시지 전송 */
-    socket.broadcast.emit('update', {type: 'disconnect', name: 'SERVER', message: socket.name + '님이 나가셨습니다.'});
+    socket.broadcast.emit('update', {type: 'disconnect', name: tempName, message: '님이 나가셨습니다.'});
   })
 })
 

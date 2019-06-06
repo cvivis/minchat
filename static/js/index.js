@@ -17,17 +17,17 @@ socket.on('connect', () => {
 /* 서버로부터 데이터 받은 경우 */
 socket.on('update', (data) => {
   var chat = document.getElementById('chat')
+  var friend = document.getElementById('friend')
   var message = document.createElement('div')
-  var node = document.createTextNode(`${data.name}: ${data.message}`)
+  var node = document.createTextNode(`${data.name} ${data.message}`)
   var className = ''
-
+  var nameBlock = document.createElement('div')
+  var name = document.createTextNode(`${data.name}`)
+  nameBlock.appendChild(name)
   // 타입에 따라 적용할 클래스를 다르게 지정
   switch(data.type) {
     case 'message':
       className = 'other'
-      let nameBlock = document.createElement('div')
-      let name = document.createTextNode(`${data.name}`)
-      nameBlock.appendChild(name)
       nameBlock.classList.add('name')
       chat.appendChild(nameBlock)
       node = document.createTextNode(`${data.message}`)
@@ -35,13 +35,16 @@ socket.on('update', (data) => {
 
     case 'connect':
       className = 'connect'
+      nameBlock.classList.add('member')
+      nameBlock.id=`${data.name}`;
+      friend.appendChild(nameBlock);
       break
 
     case 'disconnect':
       className = 'disconnect'
+      friend.removeChild(document.getElementById(`${data.name}`))
       break
   }
-
   message.classList.add(className)
   message.appendChild(node)
   chat.appendChild(message)
