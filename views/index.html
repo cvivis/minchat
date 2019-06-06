@@ -8,16 +8,16 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
   </head>
-      <!-- 엔터키 함수 -->
-    <script>
-      var temp;
-        function enterKey(){
-          if (window.event.keyCode == 13){
-            send();
-          }
-        }
-    </script>
-    <body>
+  <!-- 엔터키 함수 -->
+  <script>
+    var temp;
+    function enterKey(){
+      if (window.event.keyCode == 13){
+        send();
+      }
+    }
+  </script>
+  <body>
     <div id="main">
       <div id="chat">
         <!-- 채팅 메시지 영역 -->
@@ -27,6 +27,8 @@
         <button id = "send" onclick="send()" >전송 </button>
       </div>
     </div>
+    <div id="list">대화 상대</div>
+    <div id="friend"></div>
   </body>
   <!--Start of Tawk.to Script-->
   <body>

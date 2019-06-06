@@ -4,28 +4,30 @@ body{
   background-color: #212f3d;
 }
 
+/*
 #head{
   line-height: 20vh;
   font-weight: bold;
   margin: 0px;
-  height: 20vh
+  height: 20vh;
 }
+*/
 #main {
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  float:left;
+  margin : 1%;
   border-radius: 10px;
   border: solid #1abc9c;
   /* border-left: solid #1abc9c; */
   background-color: #2a3a4c;
   text-align: center;
   width: 70%;
-  height: 99vh;
+  height: 92vh;
 }
 #test {
   border-radius: 20px;
   border : 0px;
 }
+
 #send:hover{background: #009496;}
 #send{
   width : 60pt;
@@ -42,6 +44,24 @@ body{
 #chat {
   height: 90%;
   width: 100%;
+  overflow-y: auto;
+}
+#list {
+  float:left;
+  color:white;
+  margin-left: 10%;
+  margin-top: 2%;
+  font-size:20px;
+}
+#friend {
+  border-radius: 10px;
+  float:left;
+  width: 25%;
+  background-color: #2a3a4c;
+  margin-top: 1%;
+  margin-left: 1%;
+  box-sizing: border-box;
+  height:83vh;
   overflow-y: auto;
 }
 
@@ -79,10 +99,11 @@ body{
   clear:both;
   color:white;
   font-weight: bolder;
-  font-size: 10px;
+  font-size: 12px;
   margin-left: 1em;
   margin-right: 60%;
   line-height: 2.5vh;
+  padding: 9px;
   text-align: left;
   float: left;
   word-break:break-all;
