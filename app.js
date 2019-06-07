@@ -27,7 +27,6 @@ app.engine('html', require('ejs').renderFile);
 //클라이언트의 POST 요청 받기위해 모듈 불러오기
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));
-
 //DB불러오기
 var mysql = require('mysql');
 
@@ -133,7 +132,6 @@ io.sockets.on('connection', function(socket) {
   /* 새로운 유저가 접속했을 경우 다른 소켓에게도 알려줌 */
   socket.on('newUser', function(name) {
     console.log(name + ' 님이 접속하였습니다.')
-
     /* 소켓에 이름 저장해두기 */
     socket.name = name;
     /* 모든 소켓에게 전송 */

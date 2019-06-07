@@ -48,6 +48,7 @@ socket.on('update', (data) => {
   message.classList.add(className)
   message.appendChild(node)
   chat.appendChild(message)
+  document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
 })
 
 /* 메시지 전송 함수 */
@@ -64,6 +65,7 @@ function send() {
   msg.classList.add('me')
   msg.appendChild(node)
   chat.appendChild(msg)
+  document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
   // 서버로 message 이벤트 전달 + 데이터와 함께
   socket.emit('message', {type: 'message', message: message})
 }

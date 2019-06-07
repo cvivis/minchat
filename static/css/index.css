@@ -44,7 +44,7 @@ body{
 #chat {
   height: 90%;
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 #list {
   float:left;
