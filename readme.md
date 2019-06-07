@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="150" height="150" src="https://github.com/cvivis/minchat/blob/master/views/mint.png">
+</p>
+
 # Min Chat
 
 ## 프로젝트 목표
@@ -10,9 +14,9 @@
 
 ## Images
 <p align="center">
-  <img width="340" height="200" src="https://github.com/wangjh789/Woo-Wang/blob/master/log-in.png">
+  <img width="400" height="200" src="https://github.com/wangjh789/Woo-Wang/blob/master/log-in.png">
 </p>
 <p align="center">
-  <img width="340" height="200" src="https://github.com/wangjh789/Woo-Wang/blob/master/chatting.png">
+  <img width="400" height="200" src="https://github.com/wangjh789/Woo-Wang/blob/master/chatting.png">
 </p>
   
