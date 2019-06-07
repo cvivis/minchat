@@ -30,6 +30,7 @@ body{
 
 #send:hover{background: #009496;}
 #send{
+  margin:20px;
   width : 60pt;
   height: 20pt;
   background: #1abc9c;
@@ -47,6 +48,7 @@ body{
   overflow-y: scroll;
 }
 #list {
+  border-radius: 10px;
   float:left;
   color:white;
   margin-left: 10%;
@@ -98,6 +100,7 @@ body{
 }
 /*이름*/
 .name {
+  
   clear:both;
   color:white;
   font-weight: bolder;
@@ -128,7 +131,6 @@ body{
   text-align: left;
   float: right;
 }
-
 /* 상대방이 보낸 메시지 */
 .other {
   clear:both;
@@ -149,13 +151,19 @@ body{
 /* 접속한 사람*/
 .member {
   border-radius: 10px;
-  margin:5px;
+  margin:20px;
   background-color:#ECF0F1;
   text-align:center;
   width:auto;
-  height:auto;
+  height:35px;
   padding: 9px;
   font-weight:bold;
+}
+.member_img{
+  background-image:url("/mint_simg");
+  background-repeat: no-repeat;
+  background-position: 3px;
+  background-size: 45px;
 }
 ::-webkit-scrollbar{
     width: 10px;

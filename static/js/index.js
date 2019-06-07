@@ -36,6 +36,7 @@ socket.on('update', (data) => {
     case 'connect':
       className = 'connect'
       nameBlock.classList.add('member')
+      nameBlock.classList.add('member_img')
       nameBlock.id=`${data.name}`;
       friend.appendChild(nameBlock);
       break

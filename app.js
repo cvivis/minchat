@@ -34,7 +34,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   post: 3306,//오류생기면 추가
-  password: 'choibi',
+  password: 'hsy4080408',
   database: 'minchat_user'
 });
 connection.connect(function(err){
@@ -64,6 +64,18 @@ app.get('/', function(req, res) {
 /* 이미지 불러오기*/
 app.get('/mintimg', function(req, res){
   fs.readFile('./views/mint.png', function(err, data) {
+    if(err) {
+      res.send('에러')
+    } else {
+      res.writeHead(200, {'Content-Type':'text/html'})
+      res.end(data)
+    }
+  })
+})
+
+/* 이미지 불러오기*/
+app.get('/mint_simg', function(req, res){
+  fs.readFile('./views/mint_s.png', function(err, data) {
     if(err) {
       res.send('에러')
     } else {
