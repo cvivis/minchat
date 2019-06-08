@@ -51,15 +51,16 @@ app.use('/js', express.static('./static/js'))
 
 /* Get 방식으로 / 경로에 접속하면 실행 됨 */
 app.get('/', function(req, res) {
-  fs.readFile('./views/login.html', function(err, data) {
-    if(err) {
-      res.send('에러')
-    } else {
-      res.writeHead(200, {'Content-Type':'text/html'})
-      res.write(data)
-      res.end()
-    }
-  })
+  res.render('login.html', { alert: false});
+  // fs.readFile('./views/login.html', function(err, data) {
+  //   if(err) {
+  //     res.send('에러')
+  //   } else {
+  //     res.writeHead(200, {'Content-Type':'text/html'})
+  //     res.write(data)
+  //     res.end()
+  //   }
+  // })
 })
 /* 이미지 불러오기*/
 app.get('/mintimg', function(req, res){
@@ -84,56 +85,63 @@ app.get('/mint_simg', function(req, res){
     }
   })
 })
-//로그인정보와 DB정보 확인해서 채팅창 연결
-// app.post('/', function (req, res){
-//   var name = req.body.name;
-//   var pwd = req.body.pwd;
-//   console.log(name,pwd);
-//   //DB에 Query전송
-//   var sql = `SELECT * FROM user_info WHERE username = ?`; 
-//   connection.query(sql,[name],function(err,results,fields){
-//     // console.log(results);
-//     if(results.length == 0){
-//       res.redirect('/');
-//     }
-//     else{
-//       var db_pwd = results[0].password;
+// 로그인정보와 DB정보 확인해서 채팅창 연결
+app.post('/', function (req, res){
+  var name = req.body.name;
+  var pwd = req.body.pwd;
+  console.log(name,pwd);
+  //DB에 Query전송
+  var sql = `SELECT * FROM user_info WHERE username = ?`; 
 
-//       if(pwd == db_pwd){
-//         res.render('index.html');
-//       }
-//       else{
-//         res.redirect('/');
-//       }
-//     }
-//   })
-// });
+  connection.query(sql,[name],function(err,results,fields){
+    // console.log(results);
+    if(results.length == 0){
+      res.render('login.html',{ alert: true});
+    }
+    else{
+      var db_pwd = results[0].password;
+
+      if(pwd == db_pwd){
+        res.render('index.html');
+      }
+      else{
+        res.render('login.html', { alert: true});
+      }
+    }
+  })
+});
+
 //회원가입창 열기
 app.get('/register', function (req, res) {
-  res.render('register.html');
+  res.render('register.html',{ alert: false});
 });
 
 //일단 index들어가서 디자인 바꿔야되니 로그인정보 확인X
-app.get('/index', function(req, res){
-  fs.readFile('./views/index.html',function(error, data){
-    res.writeHead(200, { 'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
+// app.get('/index', function(req, res){
+//   fs.readFile('./views/index.html',function(error, data){
+//     res.writeHead(200, { 'Content-Type': 'text/html'});
+//     res.end(data);
+//   })
+// })
 
 //회원가입정보 DB에 저장하기
 app.post('/register', function (req, res){
   var name = req.body.name;//name의 속성 
   var pwd = req.body.pwd;//name의 속성
   var pwdconf = req.body.pwdconf;//name의 속성
-
+  var nameconf = `SELECT * FROM user_info WHERE username = ?`;
+  
   //DB에 Query 날리기
-  var sql = `INSERT INTO user_info VALUES (?,?)`; 
-  connection.query(sql, [name,pwd],function(error,results, fields){
-    console.log(results);
-  });
-
-  res.redirect('/');
+  if(nameconf == true){
+    var sql = `INSERT INTO user_info VALUES (?,?)`; 
+    connection.query(sql, [name,pwd],function(error,results, fields){
+      console.log(results);
+      res.redirect('/');
+    });
+  }
+  else{
+    res.render('register.html', { alert: true});
+  }
 });
 
 io.sockets.on('connection', function(socket) {

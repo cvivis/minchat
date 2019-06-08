@@ -2,6 +2,7 @@
 body{
   margin : 0px;
   background-color: #212f3d;
+  /* background: linear-gradient(75deg,rgb(118, 145, 235) ,rgb(38, 255, 172) ); */
 }
 
 /*
@@ -18,10 +19,12 @@ body{
   border-radius: 10px;
   border: solid #1abc9c;
   /* border-left: solid #1abc9c; */
+  /* background: linear-gradient(75deg,rgb(118, 145, 235) ,rgb(38, 255, 172) ); */
   background-color: #2a3a4c;
   text-align: center;
   width: 70%;
   height: 92vh;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.699);
 }
 #test {
   border-radius: 20px;

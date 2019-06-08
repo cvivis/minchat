@@ -47,7 +47,7 @@
                             <h6>Welcome to <small>MinChat</small></h6>
                         </div>
                     </div>
-                    <form action= "/register" method="POST">
+                    <form action= "/register" method="POST" onsubmit="return mySubmit()">
                     <div class="col-sm-10 col-md-9">
                         <div class="login-form">
                             <div class="form-group">
@@ -72,6 +72,25 @@
             </div>
         </div>
     </div>
-    
+    <script type="text/javascript">
+    function mySubmit(){
+        var pwd = document.getElementsByName('pwd')[0];
+        var conf = document.getElementsByName('pwdconf')[0];
+        //위의 두 값 확인
+        if(pwd.value != conf.value){
+            conf.style.borderColor = "#FF322D";
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    </script>
+
+    <% if(alert== true) {%>
+        <script text="type/javascript">
+        alert('아이디가 중복됩니다.');    
+        </script>
+        <% } %>
 </body>
 </html>

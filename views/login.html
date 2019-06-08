@@ -52,17 +52,17 @@
                     </div>
                     <div class="col-sm-10 col-md-9">
                         <div class="login-form">
-                        <!-- <form action="/" method="POST"> -->
+                        <form action="/" method="POST">
                             <div class="form-group">
-                                <input type="text" class="form-control login-field" name ="name"   placeholder="Enter your name">
+                                <input type="text" class="form-control login-field" name ="name" required  placeholder="Enter your name">
                                 <label class="login-field-icon fui-user" for="login-name"></label>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control login-field" name="pwd"  placeholder="Password">
+                                <input type="password" class="form-control login-field" name="pwd" required placeholder="Password">
                                 <label class="login-field-icon fui-lock" for="login-pass"></label>
                             </div>
                             <input type="submit" value="Login" class="btn btn-primary btn-lg btn-block" >
-                        <!-- </form> -->
+                        </form>
                         <form action="/register" method="GET">
                             <div class="login-link">
                                 <input type= 'submit' value = 'Register' class="btn btn-primary btn-lg btn-block">
@@ -74,6 +74,12 @@
             </div>
         </div>
     </div>
+    <!--ejs뷰어 패키지 안까시면 <에서 빨간색이 뜰겁니다 오류가 아니에여ㅠㅠㅠㅠ-->
+    <% if(alert == true) {%>
+    <script text="type/javascript">
+    alert('아이디가 틀리거나 잘못된 비밀번호 입니다.');    
+    </script>
+    <% } %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
