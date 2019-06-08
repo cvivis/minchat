@@ -130,18 +130,19 @@ app.post('/register', function (req, res){
   var pwd = req.body.pwd;//name의 속성
   var pwdconf = req.body.pwdconf;//name의 속성
   var nameconf = `SELECT * FROM user_info WHERE username = ?`;
-  
+  connection.query(nameconf, [name],function(error,results, fields){
+    if(results.length == 0){
+      var sql = `INSERT INTO user_info VALUES (?,?)`; 
+      connection.query(sql, [name,pwd],function(error,results, fields){
+        console.log(results);
+        res.redirect('/');
+      });
+    }
+    else{
+      res.render('register.html', { alert: true});
+    }
+  })
   //DB에 Query 날리기
-  if(nameconf == true){
-    var sql = `INSERT INTO user_info VALUES (?,?)`; 
-    connection.query(sql, [name,pwd],function(error,results, fields){
-      console.log(results);
-      res.redirect('/');
-    });
-  }
-  else{
-    res.render('register.html', { alert: true});
-  }
 });
 
 io.sockets.on('connection', function(socket) {
