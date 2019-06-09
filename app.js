@@ -19,8 +19,11 @@ const server = http.createServer(app)
 /* 생성된 서버를 socket.io에 바인딩 */
 const io = socket(server)
 
+const path = require('path')
+
+var nick= null;
 //views 파일안의 html 파일들 렌더링(불러오기)준비
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
@@ -34,7 +37,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   post: 3306,//오류생기면 추가
-  password: 'hsy4080408',
+  password: 'choibi',
   database: 'minchat_user'
 });
 connection.connect(function(err){
@@ -45,9 +48,6 @@ connection.connect(function(err){
   //connection 성공!
   console.log('Success DB connection');
 })
-
-app.use('/css', express.static('./static/css'))
-app.use('/js', express.static('./static/js'))
 
 /* Get 방식으로 / 경로에 접속하면 실행 됨 */
 app.get('/', function(req, res) {
@@ -63,28 +63,28 @@ app.get('/', function(req, res) {
   // })
 })
 /* 이미지 불러오기*/
-app.get('/mintimg', function(req, res){
-  fs.readFile('./views/mint.png', function(err, data) {
-    if(err) {
-      res.send('에러')
-    } else {
-      res.writeHead(200, {'Content-Type':'text/html'})
-      res.end(data)
-    }
-  })
-})
+// app.get('/mintimg', function(req, res){
+//   fs.readFile('./views/mint.png', function(err, data) {
+//     if(err) {
+//       res.send('에러')
+//     } else {
+//       res.writeHead(200, {'Content-Type':'image/png'})
+//       res.end(data)
+//     }
+//   })
+// })
 
 /* 이미지 불러오기*/
-app.get('/mint_simg', function(req, res){
-  fs.readFile('./views/mint_s.png', function(err, data) {
-    if(err) {
-      res.send('에러')
-    } else {
-      res.writeHead(200, {'Content-Type':'text/html'})
-      res.end(data)
-    }
-  })
-})
+// app.get('/mint_simg', function(req, res){
+//   fs.readFile('./views/mint_s.png', function(err, data) {
+//     if(err) {
+//       res.send('에러')
+//     } else {
+//       res.writeHead(200, {'Content-Type':'image/png'})
+//       res.end(data)
+//     }
+//   })
+// })
 // 로그인정보와 DB정보 확인해서 채팅창 연결
 app.post('/', function (req, res){
   var name = req.body.name;
@@ -100,9 +100,10 @@ app.post('/', function (req, res){
     }
     else{
       var db_pwd = results[0].password;
-
+      var db_id = results[0].username;
       if(pwd == db_pwd){
-        res.render('index.html');
+        nick=db_id;
+        res.redirect('./index');
       }
       else{
         res.render('login.html', { alert: true});
@@ -117,12 +118,9 @@ app.get('/register', function (req, res) {
 });
 
 //일단 index들어가서 디자인 바꿔야되니 로그인정보 확인X
-// app.get('/index', function(req, res){
-//   fs.readFile('./views/index.html',function(error, data){
-//     res.writeHead(200, { 'Content-Type': 'text/html'});
-//     res.end(data);
-//   })
-// })
+app.get('/index', function(req, res){
+  res.render('./index.html');
+})
 
 //회원가입정보 DB에 저장하기
 app.post('/register', function (req, res){
@@ -130,6 +128,10 @@ app.post('/register', function (req, res){
   var pwd = req.body.pwd;//name의 속성
   var pwdconf = req.body.pwdconf;//name의 속성
   var nameconf = `SELECT * FROM user_info WHERE username = ?`;
+  if(!name||!pwd||!pwdconf){
+    res.redirect('/register');
+    return;
+  }
   connection.query(nameconf, [name],function(error,results, fields){
     if(results.length == 0){
       var sql = `INSERT INTO user_info VALUES (?,?)`; 
@@ -144,7 +146,7 @@ app.post('/register', function (req, res){
   })
   //DB에 Query 날리기
 });
-
+var count=1;
 io.sockets.on('connection', function(socket) {
 
   socket.on('rooms',function(){
@@ -152,11 +154,16 @@ io.sockets.on('connection', function(socket) {
   })
   /* 새로운 유저가 접속했을 경우 다른 소켓에게도 알려줌 */
   socket.on('newUser', function(name) {
-    console.log(name + ' 님이 접속하였습니다.')
+    console.log(name + count + ' 님이 접속하였습니다.')
     /* 소켓에 이름 저장해두기 */
-    socket.name = name;
-    /* 모든 소켓에게 전송 */
-    io.sockets.emit('update', {type: 'connect', name: name, message: '님이 접속하였습니다.'})
+    if(!nick){
+      socket.name = name+count;
+      io.sockets.emit('update', {type: 'connect', name: name+count++, message: '님이 접속하였습니다.'})
+    }
+    else {
+      socket.name = nick;
+      io.sockets.emit('update', {type: 'connect', name: nick, message: '님이 접속하였습니다.'})
+    }
   })
 
   /* 전송한 메시지 받기 */
@@ -178,9 +185,10 @@ io.sockets.on('connection', function(socket) {
     socket.broadcast.emit('update', {type: 'disconnect', name: tempName, message: '님이 나가셨습니다.'});
   })
 })
-
+app.use('/css', express.static(__dirname +'/static/css'))
+app.use('/js', express.static(__dirname +'/static/js'))
+app.use('/views',express.static(__dirname +'./views'))
 /* 서버를 8080 포트로 listen */
 server.listen(8080, function() {
   console.log('서버 실행 중..')
 })
-

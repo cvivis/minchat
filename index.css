@@ -163,7 +163,7 @@ body{
   font-weight:bold;
 }
 .member_img{
-  background-image:url("https://image.flaticon.com/icons/svg/1802/1802395.svg");
+  background-image:url("/mint_simg");
   background-repeat: no-repeat;
   background-position: 3px;
   background-size: 45px;
