@@ -22,5 +22,5 @@
   
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[MIT](http://opensource.org/licenses/MIT) <br/>
 Copyright (c) 2019 cvivis
