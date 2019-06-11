@@ -20,3 +20,6 @@
   <img width="400" height="200" src="https://github.com/wangjh789/Woo-Wang/blob/master/chatting.png">
 </p>
   
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
