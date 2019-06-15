@@ -27,9 +27,9 @@ Copyright (c) 2019 cvivis
 
 ## Developers
 
-팀원소개
-이름| 역할
-김규진| Front-end , Presentation
-왕종휘| Main- Front-end, Sub- Back-end
-황시은| Main- Back-end(DBMS), Sub- Front-end
-최병익| Fullstack
+| 이름         | 역할        |
+|--------------|------------|
+| 김규진 | Front-end , Presentation |
+| 왕종휘 | Main- Front-end, Sub- Back-end |
+| 황시은 | Main- Back-end(DBMS), Sub- Front-end |
+| 최병익 | Fullstack |
